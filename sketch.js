@@ -7,10 +7,12 @@ var engine, world;
 var bg, bgImg;
 var circle1;
 var monkey1, monkey2;
+var finish, finishIMG;
 
 function preload() {
     bgImg = loadImage("sprites/background.jpg");
-    monkey1 = loadImage("sprites/right_swing.png")
+    monkey1 = loadImage("sprites/right_swing.png");
+    finishIMG = loadImage("sprites/finish_line.png");
 
 }
 
@@ -47,17 +49,17 @@ function setup() {
 
     monkey = new Monkey(500, 400, 60, 70);
 
+    finish = createSprite(850,250,100,100);
+    finish.addImage(finishIMG)
 
 }
 
 function draw() {
+background(0);
+
     
 
-    if (bg.x < 0) {
-        bg.x = bg.width / 2;
-    }
-
-    background(0);
+    
     text(mouseX + "," + mouseY, mouseX, mouseY)
 
 
@@ -75,7 +77,6 @@ function draw() {
 
     // if (keyWentDown(RIGHT_ARROW)) {
     //     monkey=loadImage("sprites/right_swing.png")
-
     // }
 
     drawSprites();
